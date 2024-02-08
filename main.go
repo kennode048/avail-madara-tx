@@ -72,7 +72,7 @@ func main() {
 		panic(err.Error())
 	}
 
-	// go deployTx(public_key, a)
+	go deployTx(public_key, a)
 	go invokeTx(a)
 	select {}
 
@@ -112,8 +112,8 @@ func deployTx(pub string, a *account.Account) {
 			time.Sleep(41 * time.Second)
 			continue
 		}
-		fmt.Println("deployd: ", resp.ContractAddress)
-		time.Sleep(21 * time.Second)
+		fmt.Println("deployd: ", resp)
+		time.Sleep(41 * time.Second)
 
 	}
 
@@ -170,7 +170,7 @@ func invokeTx(a *account.Account) {
 		}
 
 		fmt.Println("tx: ", rsp.TransactionHash, " nonce: ", nonce)
-		time.Sleep(20 * time.Second)
+		time.Sleep(30 * time.Second)
 	}
 }
 
